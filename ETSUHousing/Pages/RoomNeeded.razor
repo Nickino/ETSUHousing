@@ -1,0 +1,36 @@
+﻿@page "/roomneeded1"
+
+@using MudBlazor
+
+<MudContainer>
+    <MudText Typo="Typo.h2">Room Needed</MudText>
+    <MudForm>
+        <MudTextField Label="Budget" InputType="InputType.Number" Id="budget" @bind-Value="@budget"></MudTextField>
+        <MudSelect Label="Gender" @bind-Value="@gender">
+            <MudSelectItem Value="@("Female")" />
+            <MudSelectItem Value="@("Male")" />
+            <MudSelectItem Value="@("Not Specified")" />
+        </MudSelect>
+        <MudSelect Label="Degree" @bind-Value="@degree">
+            <MudSelectItem Value="@("Undergrad")" />
+            <MudSelectItem Value="@("Graduate")" />
+            <MudSelectItem Value="@("Doctorate")" />
+        </MudSelect>
+
+        <MudTextField Label="Major" Id="major" @bind-Value="@major"></MudTextField>
+        <MudTextField Label="Description" Id="description" @bind-Value="@description" Lines="1"></MudTextField>
+        <MudCheckBox Label="I accept " @bind-Checked="@agreement">
+            <MudNavLink Href="/Terms">the Terms of Use & Privacy Policy.</MudNavLink>
+        </MudCheckBox>
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Post</MudButton>
+    </MudForm>
+</MudContainer>
+
+@code {
+    private string budget;
+    private string gender;
+    private string degree;
+    private string major;
+    private string description;
+    private bool agreement;
+}
